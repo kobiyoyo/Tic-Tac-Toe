@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Array
   def all_empty?
     all? { |x| x.to_s.empty? }

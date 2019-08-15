@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 class Board
   attr_reader :grids
@@ -17,6 +18,7 @@ class Board
   def game_over
     return :winner if winner?
     return :draw if draw?
+
     false
   end
 
