@@ -1,22 +1,23 @@
+# frozen_string_literal: true
 
 class Board
   attr_reader :grids
-
   def initialize(params = {})
     @grids = params.fetch(:grids, default_rows_columns)
   end
 
-  def get_cell(x, y)
-    grids[y][x]
+  def get_cell(val_x, val_y)
+    grids[val_y][val_x]
   end
 
-  def set_cell(x, y, value)
-    get_cell(x, y).value = value
+  def set_cell(val_x, val_y, value)
+    get_cell(val_x, val_y).value = value
   end
 
   def game_over
     return :winner if winner?
     return :draw if draw?
+
     false
   end
 
@@ -30,7 +31,6 @@ class Board
 
   # default grid
   def default_rows_columns
-    cell = Cell.new
     Array.new(3) { Array.new(3) { Cell.new } }
   end
 
@@ -51,9 +51,9 @@ class Board
   end
 
   def winning_positions
-    grids +
-      grids.transpose +
-      diagonals
+    grids + # rows
+      grids.transpose + # columns
+      diagonals # two diagonals
   end
 
   def diagonals
