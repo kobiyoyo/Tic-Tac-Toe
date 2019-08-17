@@ -1,9 +1,8 @@
 require './lib/my_array'
 require './lib/cell'
 require './lib/player'
-require './lib/game'
 require './lib/board'
-      
+    
 module UserInterface
     def solicit_move
       "#{current_player.name}: Enter a number between 1 and 9 to make your move"
@@ -36,9 +35,6 @@ module UserInterface
       end
     end
 end
-
-
-
 class Game
     
     attr_reader :players, :board, :current_player, :other_player
@@ -74,7 +70,7 @@ class Game
 
 end
 
-   
+
 
 puts "Welcome to tic tac toe"
 chubi = Player.new({choice: "X", name: "chubi"})
